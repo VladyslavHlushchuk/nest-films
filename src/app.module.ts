@@ -8,7 +8,7 @@ import { FilmsModule } from './films/films.module';
   imports: [TypeOrmModule.forRoot({
     type: 'sqlite',
     database: 'films.sqlite',
-    entities: ['/../**/*.entity{.ts,.js}'],
+    entities: ['dist/**/*.entity{.ts,.js}'],
     synchronize: true,
   }), FilmsModule],
   controllers: [AppController],

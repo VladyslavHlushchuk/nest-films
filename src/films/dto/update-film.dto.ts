@@ -1,4 +1,23 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateFilmDto } from './create-film.dto';
+import { IsOptional, IsString, IsDate, IsNumber } from 'class-validator';
 
-export class UpdateFilmDto extends PartialType(CreateFilmDto) {}
+export class UpdateFilmDto {
+  @IsOptional()
+  @IsString()
+  name?: string;
+
+  @IsOptional()
+  @IsString()
+  genres?: string;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsDate()
+  releasedDate?: Date;
+
+  @IsOptional()
+  @IsNumber()
+  rating?: number;
+}

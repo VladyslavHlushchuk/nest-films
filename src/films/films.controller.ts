@@ -19,17 +19,17 @@ export class FilmsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<Film> {
+  findOne(@Param('id') id: number): Promise<Film> {
     return this.filmsService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateFilmDto: UpdateFilmDto): Promise<Film> {
+  update(@Param('id') id: number, @Body() updateFilmDto: UpdateFilmDto): Promise<Film> {
     return this.filmsService.update(id, updateFilmDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string): Promise<void> {
+  remove(@Param('id') id: number): Promise<void> {
     return this.filmsService.remove(id);
   }
 

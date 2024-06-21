@@ -21,7 +21,7 @@ export class FilmsService {
     return await this.filmsRepository.find();
   }
 
-  async findOne(id: string): Promise<Film> {
+  async findOne(id: number): Promise<Film> {
     const film = await this.filmsRepository.findOne({ where: { id } });
     if (!film) {
       throw new NotFoundException(`Film with ID ${id} not found`);
@@ -29,7 +29,7 @@ export class FilmsService {
     return film;
   }
 
-  async update(id: string, updateFilmDto: UpdateFilmDto): Promise<Film> {
+  async update(id: number, updateFilmDto: UpdateFilmDto): Promise<Film> {
     const film = await this.findOne(id);
     if (!film) {
       throw new NotFoundException(`Film with ID ${id} not found`);
@@ -38,7 +38,7 @@ export class FilmsService {
     return await this.filmsRepository.save(film);
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     const film = await this.findOne(id);
     if (!film) {
       throw new NotFoundException(`Film with ID ${id} not found`);
